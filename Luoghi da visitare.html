@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Qatar Sito</title>
+
+        <style>
+             
+             body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f2f2f2;
+                margin: 0%;
+                padding: 0%;
+            }
+
+            header{
+                background-color: #70193D;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+
+            h1{
+                margin: 0;
+            }
+            
+            nav{
+                background-color: #555;
+                padding: 10px;
+                text-align: center;
+            }
+
+            nav a{
+                color: #fff;
+                text-decoration: none;
+                padding: 5px 10px;
+            }
+
+            nav a:hover {
+                background-color: #777;
+                color: #fff;
+            }
+            
+            selection{
+                margin: 20px;
+                padding: 20px;
+                background-color: #fff;
+             }
+
+            footer{
+                background-color: #70193D;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+             }
+
+             a:link{
+                color:#fff;
+             }
+
+            .container{
+                text-align: center;
+                max-width: 960px;
+                margin: auto;
+            }
+
+            table,th,td{
+            border: 1px solid #70193D;
+            }
+
+            /*Inizio style Carosello*/ 
+             
+            * {
+              box-sizing: border-box}
+              
+            .slide1 {
+              text-align: center;
+              display: none;
+            }
+            
+              img {
+              vertical-align: middle;
+            }
+           
+            .carosello {
+              max-width: 1000px;
+              position: relative;
+              margin: auto;
+            }
+            
+            .prec, .succ {
+              cursor: pointer;
+              user-select:none;
+              position: absolute;
+              top: 50%;
+              width: 40px;
+              height:40px;
+              border:2px solid #DDDDDD;
+              color: rgb(45,45,45);
+              font-size: 18px;
+              transition: 0.5s ease;
+              border-radius:50%;
+              text-align: center;
+              line-height: 38px;
+            }
+            
+            .succ {
+              right: 0;
+            }
+            
+            .prec:hover, .succ:hover {
+              background-color: #DDDDDD;
+              color: black;
+            }
+              </style>
+                </head>
+          
+          <body>
+            <header>    
+                <h1>Il Qatar</h1>
+            </header>
+
+            <nav> 
+                <a href="Index.html">Home</a>
+                <a href="Informazioni.html">Informazioni</a>
+                <a href="Luoghi da visitare.html">Luoghi da visitare</a>
+                <a href="Storia.html">Storia</a>
+                <a href="Requisiti ingresso.html">Requisiti d'ingresso</a>
+              </nav>
+
+              <section>
+                <div class="container">
+                    <h2>LUOGHI DA VISITARE</h2>
+                     <p>I nostri luoghi da visitare sono pronti ad accoglierti e a regalarti un'esperienza indimenticabile.</p>
+                     <p>Sia che tu stia pianificando una breve fuga o una lunga vacanza, preparati a lasciarti affascinare dalla bellezza del nostro stato.</p>
+                    <p>Benvenuti in un'avventura che non dimenticherai mai.</p>
+                </div>
+              </section>
+
+            <div class="carosello">
+              <div class="slide1">
+                <img src="Image/Beach.jpg" style="width:60%">
+                <p>Uno dei luoghi da vedere a Doha è Katara Beach, tra le pochissime spiagge pubbliche del Qatar che offrono emozioni e divertimento. </p>
+                <p>La spiaggia si trova in una posizione pittoresca ed è una delle principali attrazioni turistiche della capitale.</p>
+                <p>Tra gli sport acquatici che offre, si può provare l'emozione di volare con il parasailing (parapendio in acqua).</p>
+              </div>
+              <div class="slide1">
+                <img src="Image/City.jpg" style="width:60%">
+                <p>Dietro un canyon, nel deserto della penisola di Zekreet, si incontra un'altra delle attrazioni imperdibili del Qatar</p>
+                <p>la Città del Cinema, ricreazione contemporanea di un antico villaggio arabo. Rinomata per la sua serena bellezza</p>
+                <p>regala ai visitatori le suggestioni di una città fantasma del Far West americano.</p>
+              </div>
+              <div class="slide1">
+                <img src="Image/Vilage.jpg" style="width:60%">
+                <p>il Katara Cultural Village, incarnazione della vibrante cultura del Paese.</p>
+                <p>Una perfetta attrazione storica che ospita un teatro, giardini, moschee dal design elegante, una gallerie d'arte.</p>
+              </div>
+              <div class="slide1">
+                <img src="Image/Island.jpg" style="width:60%;">  
+                <p>le “Singing Dunes”, le dune "che cantano" dell’Inland Sea, a Khor Al Adaid.</p>
+                <p>Una magnifica riserva naturale a pochi chilometri da Doha, con un proprio ecosistema, diventata un sito UNESCO.</p>
+                <p>È uno di quei rari posti al mondo dove il mare s’insinua in profondità nel cuore del deserto.</p>
+              </div>
+              <a class="prec" onclick="cambiaSlide(-1, 0)">&#10094;
+              </a>
+              <a class="succ" onclick="cambiaSlide(1, 0)">&#10095;
+              </a>
+            </div>
+
+            <script>
+              var slideTab = [1,1];
+              var slideId = []
+              var slides = document.getElementsByClassName("carosello");
+              for (var e = 1; e <= slides.length; e++){
+                slideId.push("slide"+e);
+              }
+              creaSlide(1, 0);
+              creaSlide(1, 1);
+              function cambiaSlide(n, no) {
+                creaSlide(slideTab[no] += n, no);
+              }
+              function creaSlide(n, no) {
+                var i;
+                var x = document.getElementsByClassName(slideId[no]);
+                if (n > x.length) {
+                  slideTab[no] = 1}
+                if (n < 1) {
+                  slideTab[no] = x.length}
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
+                }
+                x[slideTab[no]-1].style.display = "block";
+              }
+            </script>
+
+             <footer>
+                <p>Antonelli Tommaso &copy; 2023 </p>
+                <p><a href="mailto:antonelli.tommaso@studenti-ittfedifermi.edu.it">Clicca qua per inviare MAIL</a></p>
+            </footer>
+
+          </body>
+</html> 
